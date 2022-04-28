@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
 import "./App.css";
+import abi from "./utils/EntryPortal.json"; 
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
+  
+  const contractAddress = "0x5997F66fCB56DF0a02326cbd2bF1363Bd03de709"; // Contact Block 1 Address
 
+  const contractABI = abi.abi;
+  
   const checkIfWalletIsConnected = async () => {
     try {
       const { ethereum } = window;
@@ -58,10 +64,23 @@ const App = () => {
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const EnterPortalContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-        let count = await EnterPortalContract.getTotalEntries();
-        console.log("Retrieved total wave count...", count.toNumber());
+        //Using using contractABI here
+        const EntryPortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+        /*
+        * Execute the actual entry from your smart contract
+        */
+        const entryTxn = await EntryPortalContract.enter();
+        console.log("Mining...", entryTxn.hash);
+
+        await entryTxn.wait();
+        console.log("Mined -- ", entryTxn.hash);
+
+
+        //History of Entries - Denied & Allowed
+        let count = await EntryPortalContract.getTotalEntries();
+        console.log("Retrieved total entry count...", count.toNumber());
       } else {
         console.log("Ethereum object doesn't exist!");
       }
