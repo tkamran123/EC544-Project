@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Replace the address belowwith the address of your SimpleDoorLock
-# contract address you got from IoTeX Studio IDE
-
 while :
 do
 
