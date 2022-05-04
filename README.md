@@ -12,7 +12,7 @@
 
 As mentioned in the section **VII. Demonstration Issues** of the report, we ran into issue with polygon public test network. Thus, our project demonstration was done using ganache and the local test network (RPC server with IP address). For more information on the issue, please refer to **VII. Demonstration Issues** section of the report
 
-* [Demo_code]() folder contains file including web3 and files for raspberry pi used to demonstrate the project shown in the video
+* [Demo_code](https://github.com/tkamran123/EC544-Project/tree/main/Demo_code) folder contains file including web3 and files for raspberry pi used to demonstrate the project shown in the video
 * Other files and folders on the main readme are the web3 app with polygon network.
 
 ---
