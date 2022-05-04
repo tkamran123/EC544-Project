@@ -1,3 +1,22 @@
+# EC544 Project: Blockchain Powered Smart Lock
+
+**Team 10:**
+* Juehao Lin
+* Talha Kamran
+* Nuwapa Promchotichai (Prim)
+
+# Demo Video
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/j_uyuUCPhrg/0.jpg)](https://www.youtube.com/watch?v=j_uyuUCPhrg "EC544 Demo")
+
+# Note
+
+As mentioned in the section **VII. Demonstration Issues** of the report, we ran into issue with polygon public test network. Thus, our project demonstration was done using ganache and the local test network (RPC server with IP address). For more information on the issue, please refer to **VII. Demonstration Issues** section of the report
+
+* [Demo_code]() folder contains file including web3 and files for raspberry pi used to demonstrate the project shown in the video
+* Other files and folders on the main readme are the web3 app with polygon network.
+
+---
+
 ## Running React on Repl.it
 
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
