@@ -8,7 +8,7 @@ Team 10:
 Technology Used for demo:
 * Ganache Blockchain & Metamask
 * Remix IDE (to deploy contract)
-* [web3-react](https://github.com/NoahZinsmeister/web3-react) with nextjs / react
+* web3-react with nextjs / react
 * Raspberry pi 4 & door locking/unlocking mechanisms (with solenoid)
 
 
@@ -39,7 +39,7 @@ Requirements:
 
 1. Wire the hardware according to the diagram
 
-![doorlock]()
+![doorlock](https://github.com/tkamran123/EC544-Project/blob/main/Demo_code/hwdiagram.png)
 
 2. Download the entryRead.js and checkState.sh to your raspberry pi.
 3. Set up the bash script by: 
