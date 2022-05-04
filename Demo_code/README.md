@@ -8,7 +8,7 @@ Team 10:
 Technology Used for demo:
 * Ganache Blockchain & Metamask
 * Remix IDE (to deploy contract)
-* [web3-react](https://github.com/NoahZinsmeister/web3-react) with nextjs / react
+* web3-react with nextjs / react
 * Raspberry pi 4 & door locking/unlocking mechanisms (with solenoid)
 
 
