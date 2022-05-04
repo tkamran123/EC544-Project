@@ -5,8 +5,49 @@ import abi from "./utils/EntryPortal.json";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
+  const [allHistory, setHistory] = useState([]);
+  const contractAddress = "0x319273d41004950C464DBcfd5b16758C55A63B78"; // Contract Block 1 Address
   
-  const contractAddress = "0x5997F66fCB56DF0a02326cbd2bF1363Bd03de709"; // Contact Block 1 Address
+  /*
+   * Create a method that gets all history from the contract
+   */
+  const getHistory = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const EntryPortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+        /*
+         * Call the getAllWaves method from your Smart Contract
+         */
+        const history = await EntryPortalContract.getHistory();
+
+
+        /*
+         * We only need address, timestamp, and message in our UI so let's
+         * pick those out
+         */
+        let historyCleaned = [];
+        history.forEach(enter => {
+          historyCleaned.push({
+            address: enter.student,
+            timestamp: new Date(enter.timestamp * 1000)
+          });
+        });
+
+        /*
+         * Store our data in React State
+         */
+        setHistory(historyCleaned);
+      } else {
+        console.log("Ethereum object doesn't exist!")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const contractABI = abi.abi;
   
@@ -27,6 +68,8 @@ const App = () => {
         const account = accounts[0];
         console.log("Found an authorized account:", account);
         setCurrentAccount(account);
+         const EntryPortalContract = new 
+        EntryPortalContract.getHistory(); 
       } else {
         console.log("No authorized account found")
       }
@@ -79,6 +122,18 @@ const App = () => {
 
 
         //History of Entries - Denied & Allowed
+        let final = await EntryPortalContract.state(); 
+        EntryPortalContract.toggle(); 
+        console.log("The door is...",final)
+        //function showStatus() {
+ // var val=contract.State.call();
+ // console.log(val);
+
+  //if (val == true) {
+  //  lock.writeSync(0);
+  //} else {
+  //  lock.writeSync(1);
+  
         let count = await EntryPortalContract.getTotalEntries();
         console.log("Retrieved total entry count...", count.toNumber());
       } else {
@@ -117,6 +172,13 @@ const App = () => {
             Connect Wallet
           </button>
         )}
+        {allHistory.map((enter, index) => {
+          return (
+            <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px" }}>
+              <div>Address: {enter.address}</div>
+              <div>Time: {enter.timestamp.toString()}</div>
+            </div>)
+                        })}
       </div>
     </div>
   );
