@@ -5,10 +5,6 @@ Team 10:
 * Talha Kamran
 * Nuwapa Promchotichai (Prim)
 
-This is a minimalistic project to show us how we can connect to metamask using [web3-react](https://github.com/NoahZinsmeister/web3-react) in nextjs / react.
-
-This could just as easily be done in typescript.
-
 Technology Used for demo:
 * Ganache Blockchain & Metamask
 * Remix IDE (to deploy contract)
